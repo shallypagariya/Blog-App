@@ -21,16 +21,7 @@ export const getComments =async(request,reponse)=>{
     }
 }
 
-// export const deleteComment =async(request,reponse)=>{
-//     try{
-//        const comment= await Comment.findById(request.params.id);
-//        await comment.findByIdAndDelete();
-//        reponse.status(200).json({msg : 'comment deleted successfully'});
-//     }catch(e){
-//         reponse.status(500).json({error : e.message});
-//     }
-// }
-//const Comment = require('../models/Comment'); // Assuming you have a Comment model
+
 
 export const deleteComment = async (request, response) => {
     try {
@@ -40,7 +31,7 @@ export const deleteComment = async (request, response) => {
             return response.status(404).json({ error: 'Comment not found' });
         }
         
-        await comment.deleteOne(); // or comment.remove() depending on your model
+        await comment.deleteOne(); 
         
         return response.status(200).json({ msg: 'Comment deleted successfully' });
     } catch (error) {
